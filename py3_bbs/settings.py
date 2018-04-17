@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Author: crazyBingo
+# @Date:   2018-04-16 17:18:52
+# @Last Modified by:   crazyang
+# @Last Modified time: 2018-04-17 16:10:33
 """
 Django settings for dj_web_blog project.
 
@@ -11,9 +16,12 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+#from django.conf import global_settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + \
+#   ('django.core.context_processors.request')
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,13 +32,13 @@ SECRET_KEY = '**bas_q4u8phb2b3tq7x^s43k7y$1i82(e+%3tn!b79#4b1$xp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+#BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
 INSTALLED_APPS = [
+    #'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ablog',
+    'bootstrap3'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'dj_web_blog.urls'
+ROOT_URLCONF = 'py3_bbs.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dj_web_blog.wsgi.application'
+WSGI_APPLICATION = 'py3_bbs.wsgi.application'
 
 
 # Database
