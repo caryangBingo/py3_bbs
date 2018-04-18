@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
-# @Last Modified by:   crazyang
-# @Last Modified time: 2018-04-17 16:10:33
+# @File Name:   settings.py
+# @Last Modified time: 2018-04-18 17:08:05
 """
 Django settings for dj_web_blog project.
 
@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ablog',
-    'bootstrap3'
+    #'bootstrap3'
+    'ablog.templatetags.custom_markdown'
 ]
 
 
