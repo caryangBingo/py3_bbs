@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-17 09:52:03
 # @Last Modified by:   crazyang
-# @Last Modified time: 2018-04-17 17:46:36
+# @Last Modified time: 2018-04-19 18:34:42
 from django.shortcuts import render
 from django.http import HttpResponse
 from ablog.models import AEblog
@@ -22,6 +22,26 @@ def detail(request, id):
     except AEblog.DoesNotExist:
         raise Http404
     return render(request, 'post.html', {'post': post})
+
+
+def ablog(request):
+    try:
+        post_list = AEblog.objects.all()
+    except AEblog.DoesNotExist:
+        raise Http404
+    return render(request, 'ablog.html', {'post_list': post_list, 'error': False})
+
+
+def aboutMe(request):
+    return render(request, 'about_me.html')
+
+
+def search_tag(request, tag):
+    try:
+        post_list = AEblog.objects.filter(category__iexact=tag)
+    except AEblog.DoesNotExist:
+        raise Http404
+    return render(request, 'tag.html', {'post_list': post_list})
 
 
 """

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
-# @Last Modified by:   crazyang
-# @Last Modified time: 2018-04-17 17:48:27
+# @Last Modified by:   crazyBingo
+# @Last Modified time: 2018-04-19 18:29:58
 """dj_web_blog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -25,8 +25,10 @@ from ablog import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.blog_home),
+    url(r'^$', views.blog_home, name='blog_home'),
     url(r'^(?P<id>\d+)/$', views.detail, name='detail'),
     #url(r'^(?P<my_args>\d+)/$', views.detail, name='detail'),
-    #url(r'^index/$', views.test),
+    url(r'^ablog/$', views.ablog, name='ablog'),
+    url(r'^aboutMe/$', views.aboutMe, name='aboutMe'),
+    url(r'^tag/(?P<tag>\w+)/$', views.search_tag,name='search_tag')
 ]
