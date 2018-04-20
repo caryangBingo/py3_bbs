@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @Last Modified by:   crazyBingo
-# @Last Modified time: 2018-04-19 18:29:58
+# @Last Modified time: 2018-04-20 14:36:28
 """dj_web_blog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -30,5 +30,7 @@ urlpatterns = [
     #url(r'^(?P<my_args>\d+)/$', views.detail, name='detail'),
     url(r'^ablog/$', views.ablog, name='ablog'),
     url(r'^aboutMe/$', views.aboutMe, name='aboutMe'),
-    url(r'^tag/(?P<tag>\w+)/$', views.search_tag,name='search_tag')
+    url(r'^tag/(?P<tag>\w+)/$', views.search_tag, name='search_tag'),
+    url(r'^search/$', views.blog_search, name='search'),
+    url(r'^feed/$', views.rssfeed(), name="RSS"),
 ]
