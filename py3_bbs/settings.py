@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @File Name:   settings.py
-# @Last Modified time: 2018-04-19 17:03:47
+# @Last Modified time: 2018-04-22 23:12:22
 """
 Django settings for dj_web_blog project.
 
@@ -39,17 +39,36 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #'bootstrap_admin',
+    'mongonaut',
     'django.contrib.admin',
     'django.contrib.auth',
+    'mongoengine.django.mongo_auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ablog',
     #'bootstrap3'
-    #'ablog.templatetags.custom_markdown'
+    'ablog.templatetags.custom_markdown'
 ]
-
+### 添加以下字段###
+from mongoengine import *
+DBNAME = 'mzitulg'
+AUTHENTICATION_BACKENDS = (
+    'mongoengine.django.auth.MongoEngineBackend',
+)
+SESSION_ENGINE = 'mongoengine.django.sessions'
+### 数据库做以下配置 ###
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.dummy',
+        'NAME': 'mzitulg',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,14 +103,15 @@ WSGI_APPLICATION = 'py3_bbs.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+"""
+AUTH_USER_MODE = 'mongo_auth.MongoUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
