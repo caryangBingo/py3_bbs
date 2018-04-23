@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-17 09:52:03
 # @Last Modified by:   crazyang
-# @Last Modified time: 2018-04-20 15:37:10
+# @Last Modified time: 2018-04-23 16:23:27
 from django.shortcuts import render
 from django.http import HttpResponse
 from ablog.models import AEblog
@@ -15,7 +15,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def blog_home(request):
     # return HttpResponse("Welcome Here!!!")
     post_list = AEblog.objects.all()
-    paginator = Paginator(post_list, 2)
+    paginator = Paginator(post_list, 5)
     page = request.GET.get('page')
     try:
         post_list = paginator.page(page)

@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @Last Modified by:   caryangBingo
-# @Last Modified time: 2018-04-22 16:40:57
+# @Last Modified time: 2018-04-23 16:24:10
 """dj_web_blog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
