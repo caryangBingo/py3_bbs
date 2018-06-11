@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @Last Modified by:   caryangBingo
-# @Last Modified time: 2018-06-11 15:30:51
+# @Last Modified time: 2018-06-11 21:28:33
 """dj_web_blog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -24,7 +24,6 @@ from ablog import views
 admin.autodiscover()
 
 urlpatterns = [
-    #url(r'^mongonaut/', include('mongonaut.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.blog_home, name='blog_home'),
     url(r'^(?P<id>\d+)/$', views.detail, name='detail'),

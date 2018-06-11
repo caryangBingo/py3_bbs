@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @File Name:   settings.py
-# @Last Modified time: 2018-06-11 18:23:37
+# @Last Modified time: 2018-06-11 20:53:36
 """
 Django settings for dj_web_blog project.
 
@@ -114,11 +114,11 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'host',
+        'HOST': '193.112.127.237',
         'PORT': '3306',
         'NAME': 'AEblog',
         'USER': 'root',
-        'PASSWORD': 'passwd',
+        'PASSWORD': 'mysql8',
         'OPTIONS': {'init_command': "SET sql_mode='traditional'", },
     }
 }
