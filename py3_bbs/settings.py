@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @File Name:   settings.py
-# @Last Modified time: 2018-04-23 18:04:39
+# @Last Modified time: 2018-06-11 18:23:37
 """
 Django settings for dj_web_blog project.
 
@@ -16,7 +16,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-#from django.conf import global_settings
+# from django.conf import global_settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,7 +32,7 @@ SECRET_KEY = '**bas_q4u8phb2b3tq7x^s43k7y$1i82(e+%3tn!b79#4b1$xp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
+# BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -51,23 +51,22 @@ INSTALLED_APPS = [
     #'bootstrap3'
     'ablog.templatetags.custom_markdown'
 ]
+
 ### 添加以下字段###
+#from mongoengine import connect
+# DBNAME = 'mzitulg'
+#connect('mzitulg', host='mongodb://%s:%s')
 """
-from mongoengine import *
-DBNAME = 'mzitulg'
 AUTHENTICATION_BACKENDS = (
     'mongoengine.django.auth.MongoEngineBackend',
 )
 SESSION_ENGINE = 'mongoengine.django.sessions'
+"""
+"""
 ### 数据库做以下配置 ###
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.dummy',
-        'NAME': 'mzitulg',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': None,
     }
 }
 """
@@ -104,15 +103,27 @@ WSGI_APPLICATION = 'py3_bbs.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'host',
+        'PORT': '3306',
+        'NAME': 'AEblog',
+        'USER': 'root',
+        'PASSWORD': 'passwd',
+        'OPTIONS': {'init_command': "SET sql_mode='traditional'", },
+    }
+}
 
-#AUTH_USER_MODE = 'mongo_auth.MongoUser'
+# AUTH_USER_MODE = 'mongo_auth.MongoUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

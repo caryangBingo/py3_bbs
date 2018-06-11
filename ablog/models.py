@@ -2,14 +2,13 @@
 # @Author: crazyBingo
 # @Date:   2018-04-17 09:52:03
 # @File Name:   models.py
-# @Last Modified time: 2018-04-23 18:05:14
-#from mongoengine import DBNAME
+# @Last Modified time: 2018-06-11 15:16:24
+#import mongoengine
 from django.db import models
 from django.core.urlresolvers import reverse
 #from __future__ import unicode_literals
-from mongoengine import Document, StringField, IntField, ListField
-from mongoengine import *
-#from py3_bbs.settings import DBNAME
+#from mongoengine import Document, StringField, IntField, ListField
+# from py3_bbs.settings import DBNAME
 
 
 class Tag(models.Model):
@@ -18,9 +17,8 @@ class Tag(models.Model):
     def __unicode__(self):
         return self.tag_name
 
+
 # Create your models here.
-
-
 class AEblog(models.Model):
     title = models.CharField(max_length=100)
     category = models.CharField(max_length=50, blank=True)
@@ -28,16 +26,15 @@ class AEblog(models.Model):
     content = models.TextField(blank=True, null=True)
 
 # connect(DBNAME)
-#connect('mzitulg', host='mongodb://%:%')
-
+# connect('mzitulg', host='mongodb://%:%')
 
     """
 class AEblog(Document):
-    htmlTitle = StringField(max_length=50)
-    startPage = StringField(max_length=50)
-    imageUrls = StringField(max_length=100)
+    htmlTitle = StringField(max_length=30, required=True)
+    startPage = StringField(max_length=30, required=True)
+    imageUrls = StringField(max_length=50, required=True)
     createTime = DateTimeField(required=True)
-    #content = models.TextField(blank=True, null=True)
+    # content = models.TextField(blank=True, null=True)
 
     meta = {'collection': 'xyztulg'}
     """

@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @Last Modified by:   caryangBingo
-# @Last Modified time: 2018-04-23 16:24:10
+# @Last Modified time: 2018-06-11 15:30:51
 """dj_web_blog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,15 +18,13 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-import mongonaut
-from mongonaut import urls
 from django.conf.urls import include, url
 from django.contrib import admin
 from ablog import views
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^mongonaut/', include('mongonaut.urls')),
+    #url(r'^mongonaut/', include('mongonaut.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.blog_home, name='blog_home'),
     url(r'^(?P<id>\d+)/$', views.detail, name='detail'),
