@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @File Name:   settings.py
-# @Last Modified time: 2018-06-12 17:13:53
+# @Last Modified time: 2018-06-12 21:31:47
 """
 Django settings for dj_web_blog project.
 
@@ -28,9 +28,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + \
 #   ('django.core.context_processors.request')
 #base_dir = base_dir.replace('\\', '/')
-file_path = BASE_DIR + "\\db_config.ini"
+file_path = BASE_DIR + "/db_config.ini"
 
-#print(file_path)
+# print(file_path)
 
 cf = cparser.ConfigParser()
 cf.read(file_path)
@@ -55,7 +55,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bootstrap_admin',
-    #'mongonaut',
     'django.contrib.admin',
     'django.contrib.auth',
     #'mongoengine.django.mongo_auth',
