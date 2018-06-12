@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @File Name:   settings.py
-# @Last Modified time: 2018-06-11 20:53:36
+# @Last Modified time: 2018-06-12 17:13:53
 """
 Django settings for dj_web_blog project.
 
@@ -16,13 +16,29 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import configparser as cparser
 # from django.conf import global_settings
+
+#base_dir = str(os.path.dirname(os.path.dirname(__file__)))
+
+#table_name = cf.get("mysql_config", "AEblog_table")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + \
 #   ('django.core.context_processors.request')
+#base_dir = base_dir.replace('\\', '/')
+file_path = BASE_DIR + "\\db_config.ini"
 
+#print(file_path)
+
+cf = cparser.ConfigParser()
+cf.read(file_path)
+host = cf.get("ip_list", "host3")
+port = cf.get("mysql_config", "port")
+dbname = cf.get("mysql_config", "AEdb_name")
+user = cf.get("mysql_config", "user")
+password = cf.get("mysql_config", "password")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -114,11 +130,11 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '193.112.127.237',
-        'PORT': '3306',
-        'NAME': 'AEblog',
-        'USER': 'root',
-        'PASSWORD': 'mysql8',
+        'HOST': host,
+        'PORT': port,
+        'NAME': dbname,
+        'USER': user,
+        'PASSWORD': password,
         'OPTIONS': {'init_command': "SET sql_mode='traditional'", },
     }
 }
