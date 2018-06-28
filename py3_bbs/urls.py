@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @Last Modified by:   caryangBingo
-# @Last Modified time: 2018-06-11 21:28:33
+# @Last Modified time: 2018-06-27 15:49:19
 """dj_web_blog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -21,11 +21,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from ablog import views
+from accounts import views as accounts_views
 admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.blog_home, name='blog_home'),
+    url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^(?P<id>\d+)/$', views.detail, name='detail'),
     #url(r'^(?P<my_args>\d+)/$', views.detail, name='detail'),
     url(r'^ablog/$', views.ablog, name='ablog'),

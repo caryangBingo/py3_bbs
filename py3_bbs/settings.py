@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @File Name:   settings.py
-# @Last Modified time: 2018-06-12 21:31:47
+# @Last Modified time: 2018-06-27 17:24:19
 """
 Django settings for dj_web_blog project.
 
@@ -19,18 +19,12 @@ import os
 import configparser as cparser
 # from django.conf import global_settings
 
-#base_dir = str(os.path.dirname(os.path.dirname(__file__)))
-
-#table_name = cf.get("mysql_config", "AEblog_table")
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + \
 #   ('django.core.context_processors.request')
 #base_dir = base_dir.replace('\\', '/')
 file_path = BASE_DIR + "/db_config.ini"
-
-# print(file_path)
 
 cf = cparser.ConfigParser()
 cf.read(file_path)
@@ -39,6 +33,7 @@ port = cf.get("mysql_config", "port")
 dbname = cf.get("mysql_config", "AEdb_name")
 user = cf.get("mysql_config", "user")
 password = cf.get("mysql_config", "password")
+#table_name = cf.get("mysql_config", "AEblog_table")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -63,7 +58,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ablog',
-    #'bootstrap3'
+    #'bootstrap3',
+    'accounts',
     'ablog.templatetags.custom_markdown'
 ]
 
@@ -100,7 +96,7 @@ ROOT_URLCONF = 'py3_bbs.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -177,3 +173,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
