@@ -4,7 +4,7 @@
         <h2>Sign up</h2>
         <form method="post" novalidate>
             {% csrf_token %}
-            {{ form.as_p }}
+            {% include 'includes/form.html' %}
             <button type="sublimt" class="btn btn-primary">Create an account</button>
         </form>
     </div>

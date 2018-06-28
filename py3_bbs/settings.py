@@ -2,7 +2,7 @@
 # @Author: crazyBingo
 # @Date:   2018-04-16 17:18:52
 # @File Name:   settings.py
-# @Last Modified time: 2018-06-27 17:24:19
+# @Last Modified time: 2018-06-28 17:21:55
 """
 Django settings for dj_web_blog project.
 
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ablog',
     #'bootstrap3',
+    'widget_tweaks',
     'accounts',
     'ablog.templatetags.custom_markdown'
 ]
